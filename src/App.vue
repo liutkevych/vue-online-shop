@@ -120,7 +120,7 @@ hr {
 
 .element-description {
   text-align: left;
-  margin: 0 8px;
+  margin: 0 16px;
 }
 
  .card {

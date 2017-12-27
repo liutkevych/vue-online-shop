@@ -5,12 +5,17 @@
     <div class="element-description">
       <p><strong>Зображення:</strong> {{ treeName }}</p>
       <p><strong>Рамка:</strong> {{ borderName }}</p>
-      <p><strong>Відбитки:</strong></p>
+      <p><strong>Відбитки: </strong></p>
     </div>
 
     <div class="cart-image" 
     :style="{ backgroundImage: hashUrl, backgroundColor: styleObject.backgroundColor,
-     backgroundSize: styleObject.backgroundSize }"></div>
+     backgroundSize: styleObject.backgroundSize, backgroundRepeat: styleObject.backgroundRepeat,
+     backgroundPosition: styleObject.backgroundPosition}">
+      <div class="sign-header sign-font">{{sign}}</div>
+      <div class="sign-body sign-font">{{signBody}}</div>
+      <div class="sign-date sign-font">{{signDate}}</div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +30,8 @@ export default {
       borderName: '',
       colors: [],
       sign: '',
-      date: '',
+      signBody: '',
+      signDate: '',
       treeObject: {
         backgroundImage: ''
       },
@@ -34,7 +40,9 @@ export default {
       },
       styleObject: {
         backgroundColor: '#ffffff',
-        backgroundSize: '200px 250px'
+        backgroundSize: '60% 60%, 200px 250px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
       }
     }
   },
@@ -51,6 +59,15 @@ export default {
     bus.$on('borderChosen', (data) => {
       this.borderObject.backgroundImage = data.borderUrl
       this.borderName = data.borderName
+    })
+    bus.$on('newSignTitle', (sign) => {
+      this.sign = sign
+    })
+    bus.$on('newSignBody', (newBody) => {
+      this.signBody = newBody
+    })
+    bus.$on('newSignDate', (newDate) => {
+      this.signDate = newDate
     })
   }
 }
@@ -72,6 +89,18 @@ export default {
   .cart-title {
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
+  }
+
+  .sign-header {
+    margin-top: 24px;
+  }
+
+  .sign-body {
+    margin-top: 160px;
+  }
+
+  .sign-font {
+    font-size: 10px;
   }
 </style>
 
