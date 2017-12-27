@@ -46,6 +46,11 @@ export default {
       component: 'Store'
     }
   }
+  // created () {
+  // bus.$on('treeChosen', (data) => {
+  //   this.description = data.treeName
+  //   console.log(this)
+  // })
 }
 </script>
 

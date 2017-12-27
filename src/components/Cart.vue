@@ -1,10 +1,10 @@
 <template>
   <div class="cart">
     <h2>Ваш малюнок</h2>
-    <p>Зображення: {{ description }}</p>
-    <p>Рамка:</p>
+    <p>Зображення: {{ treeName }}</p>
+    <p>Рамка: {{ border }}</p>
     <p>Відбитки:</p>
-    <div class="card"><img v-bind:src="image" class="tree-img"></div>
+    <div class="card" :style="treeObject"></div>
   </div>
 </template>
 
@@ -15,21 +15,22 @@ export default {
   name: 'Cart',
   data () {
     return {
-      msg: 'Hello from Cart component',
-      description: '',
+      treeName: '',
       border: '',
       colors: [],
-      image: '',
       sign: '',
       date: '',
-      cost: 0
+      treeObject: {
+        backgroundImage: '',
+        backgroundColor: '#ffffff',
+        backgroundSize: '200px 250px'
+      }
     }
   },
   created () {
     bus.$on('treeChosen', (data) => {
-      this.image = data.treeUrl
-      this.description = data.treeName
-      console.log(data)
+      this.treeObject.backgroundImage = `url("${data.treeUrl}")`
+      this.treeName = data.treeName
     })
   }
 }
