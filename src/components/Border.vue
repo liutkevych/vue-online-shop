@@ -1,7 +1,15 @@
 <template>
   <div class="boder">
-    <ul class="tree-list">
-      <li v-for="(border, index) in borders" class="card border"><img :src="border.url" v-on:click="addBorder(index)" class="tree-img"></li>
+    <div class="element-description">
+      <h2>Рамка</h2>
+      <p>Підберіть рамку, яка пасуватиме вашій урочистості та допвнить інтерєр, адже ви не просто лишете на ній вілбитки пальців, а створите предмет декору для офісу чи оселі.</p>
+    </div>
+    <ul class="border-list">
+      <li v-for="(border, index) in borders" class="card border">
+        <div class="is-centered">
+          <img :src="border.url" v-on:click="addBorder(index)" class="border-img">
+        </div>
+      </li>
     </ul>
   </div>
 </template>
@@ -48,3 +56,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .is-centered {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .border-img {
+    width: 95%;
+    height: 95%;
+  }
+
+  .border-list {
+    list-style-type: none;
+    -webkit-padding-start: 0px;
+  }
+</style>
+

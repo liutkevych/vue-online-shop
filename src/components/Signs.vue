@@ -1,3 +1,3 @@
 <template>
-  <h1>Hello from Signs component</h1>
+  <h2>Hello from Signs component</h2>
 </template>

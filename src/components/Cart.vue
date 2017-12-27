@@ -1,10 +1,14 @@
 <template>
   <div class="cart">
-    <h2>Ваш малюнок</h2>
-    <p>Зображення: {{ treeName }}</p>
-    <p>Рамка: {{ borderName }}</p>
-    <p>Відбитки:</p>
-    <div class="card" 
+    <div class="cart-title"><strong>Ваш малюнок</strong></div>
+    <hr>
+    <div class="element-description">
+      <p><strong>Зображення:</strong> {{ treeName }}</p>
+      <p><strong>Рамка:</strong> {{ borderName }}</p>
+      <p><strong>Відбитки:</strong></p>
+    </div>
+
+    <div class="cart-image" 
     :style="{ backgroundImage: hashUrl, backgroundColor: styleObject.backgroundColor,
      backgroundSize: styleObject.backgroundSize }"></div>
   </div>
@@ -52,9 +56,22 @@ export default {
 }
 </script>
 
-<style>
-.tree-img {
-  width: 100%;
-  height: 100%;
-}
+<style scoped>
+  .tree-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cart-image {
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .cart-title {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+  }
 </style>
+

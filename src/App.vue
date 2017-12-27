@@ -118,6 +118,11 @@ hr {
     background: rgba(177, 171, 171, 0.25);
 }
 
+.element-description {
+  text-align: left;
+  margin: 0 8px;
+}
+
  .card {
     width: 200px;
     height: 250px;

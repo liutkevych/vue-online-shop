@@ -1,7 +1,9 @@
 <template>
   <div class="store">
-    <h2>{{ title }}</h2>
-    <p>{{ msg }}</p>
+    <div class="element-description">
+      <h2>{{ title }}</h2>
+      <p>{{ msg }}</p>
+    </div>
     <ul class="tree-list">
         <li v-for="(image, index) in images" class="card border"><img :src="image.url" v-on:click="addTree(index)" class="tree-img"></li>
         <!-- <li v-for="image in images" class="card border"><img :src="image.url" :data-id="image.id" v-on:click="addTree" class="tree-img"></li> -->
@@ -56,8 +58,8 @@ export default {
 
 <style scoped>
   .tree-img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
   }
 
   .tree-list {
