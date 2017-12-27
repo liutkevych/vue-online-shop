@@ -2,9 +2,11 @@
   <div class="cart">
     <h2>Ваш малюнок</h2>
     <p>Зображення: {{ treeName }}</p>
-    <p>Рамка: {{ border }}</p>
+    <p>Рамка: {{ borderName }}</p>
     <p>Відбитки:</p>
-    <div class="card" :style="treeObject"></div>
+    <div class="card" 
+    :style="{ backgroundImage: hashUrl, backgroundColor: styleObject.backgroundColor,
+     backgroundSize: styleObject.backgroundSize }"></div>
   </div>
 </template>
 
@@ -16,21 +18,35 @@ export default {
   data () {
     return {
       treeName: '',
-      border: '',
+      borderName: '',
       colors: [],
       sign: '',
       date: '',
       treeObject: {
-        backgroundImage: '',
+        backgroundImage: ''
+      },
+      borderObject: {
+        backgroundImage: ''
+      },
+      styleObject: {
         backgroundColor: '#ffffff',
         backgroundSize: '200px 250px'
       }
     }
   },
+  computed: {
+    hashUrl: function () {
+      return `url("${this.treeObject.backgroundImage}"), url("${this.borderObject.backgroundImage}")`
+    }
+  },
   created () {
     bus.$on('treeChosen', (data) => {
-      this.treeObject.backgroundImage = `url("${data.treeUrl}")`
+      this.treeObject.backgroundImage = data.treeUrl
       this.treeName = data.treeName
+    })
+    bus.$on('borderChosen', (data) => {
+      this.borderObject.backgroundImage = data.borderUrl
+      this.borderName = data.borderName
     })
   }
 }

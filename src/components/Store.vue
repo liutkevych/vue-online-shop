@@ -46,9 +46,9 @@ export default {
     addTree: function (index) {
       let choosenImage = this.images[index]
       let treeUrl = choosenImage.url
-      let treePrize = choosenImage.cost
+      let treePrise = choosenImage.cost
       let treeName = choosenImage.name
-      bus.$emit('treeChosen', {treeUrl, treePrize, treeName})
+      bus.$emit('treeChosen', {treeUrl, treePrise, treeName})
     }
   }
 }

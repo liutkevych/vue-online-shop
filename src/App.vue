@@ -20,7 +20,7 @@
       </div>
       
       <div class="result-section overlay"><Cart/></div>
-      <div class="footer"><hr/><h2>Total prise:</h2></div>
+      <div class="footer"><hr/><h2>Total prise: {{ totalPrise }} грн.</h2></div>
     </div>
   </div>
 </template>
@@ -31,6 +31,7 @@ import Store from './components/Store'
 import Border from './components/Border'
 import Signs from './components/Signs'
 import Colors from './components/Colors'
+import {bus} from './main'
 
 export default {
   name: 'app',
@@ -43,14 +44,24 @@ export default {
   },
   data () {
     return {
-      component: 'Store'
+      component: 'Store',
+      treePrise: 0,
+      borderPrise: 0
     }
+  },
+  computed: {
+    totalPrise: function () {
+      return this.treePrise + this.borderPrise
+    }
+  },
+  created () {
+    bus.$on('treeChosen', (data) => {
+      this.treePrise = data.treePrise
+    })
+    bus.$on('borderChosen', (data) => {
+      this.borderPrise = data.borderPrise
+    })
   }
-  // created () {
-  // bus.$on('treeChosen', (data) => {
-  //   this.description = data.treeName
-  //   console.log(this)
-  // })
 }
 </script>
 
