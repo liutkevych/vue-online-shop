@@ -12,9 +12,15 @@
         </nav>
         <hr/>
       </div>
-      <div class="choosen-section"><component v-bind:is="component"></component><hr/></div>
+
+      <div class="choosen-section">
+        <keep-alive>
+          <component v-bind:is="component"></component>
+        </keep-alive>
+      </div>
+      
       <div class="result-section overlay"><Cart/></div>
-      <div class="footer"><h2>Total prise:</h2></div>
+      <div class="footer"><hr/><h2>Total prise:</h2></div>
     </div>
   </div>
 </template>
@@ -62,7 +68,7 @@ hr {
   height: 100%;
   display: grid;
   grid-template-columns: auto 300px;
-  grid-template-rows: 100px auto 100px;
+  grid-template-rows: 55px auto 55px;
   grid-template-areas:
   "h r"
   "c r"
@@ -106,5 +112,12 @@ hr {
 
   .card:hover {
     border: 3px solid #36c742;
+  }
+
+  .menu {
+    list-style-type: none;
+    -webkit-padding-start: 0px;
+    display: flex;
+    justify-content: space-around;
   }
 </style>

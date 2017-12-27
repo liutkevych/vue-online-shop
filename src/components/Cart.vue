@@ -1,8 +1,10 @@
 <template>
   <div class="cart">
-    <h1>{{ msg }}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nostrum perspiciatis odit nulla quidem libero laborum temporibus ipsum nobis iusto quaerat tempore quae sit fugiat maxime dolore, corporis adipisci assumenda?</p>
-    <img v-bind:src="image" class="tree-img">
+    <h2>Ваш малюнок</h2>
+    <p>Зображення: {{ description }}</p>
+    <p>Рамка:</p>
+    <p>Відбитки:</p>
+    <div class="card"><img v-bind:src="image" class="tree-img"></div>
   </div>
 </template>
 
@@ -25,12 +27,17 @@ export default {
   },
   created () {
     bus.$on('treeChosen', (data) => {
-      this.image = data
+      this.image = data.treeUrl
+      this.description = data.treeName
+      console.log(data)
     })
   }
 }
 </script>
 
 <style>
-
+.tree-img {
+  width: 100%;
+  height: 100%;
+}
 </style>
