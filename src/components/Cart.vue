@@ -14,13 +14,13 @@
     :style="{ backgroundImage: hashUrl, backgroundColor: styleObject.backgroundColor,
      backgroundSize: styleObject.backgroundSize, backgroundRepeat: styleObject.backgroundRepeat,
      backgroundPosition: styleObject.backgroundPosition}">
-      <div class="sign-header sign-font">{{sign}}</div>
-      <div class="sign-body sign-font">{{signBody}}</div>
-      <div class="sign-date sign-font">{{signDate}}</div>
+      <div class="sign-header sign-font" :style="{ fontFamily: signFont}">{{sign}}</div>
+      <div class="sign-body sign-font" :style="{ fontFamily: signFont}">{{signBody}}</div>
+      <div class="sign-date sign-font" :style="{ fontFamily: signFont}">{{signDate}}</div>
     </div>
 
     <div class="cart-footer">
-      <button class="btn btn-primary btn-lg">До кошика</button>
+      <button class="btn btn-primary btn-lg" v-on:click="makeOrder">До кошика</button>
     </div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
       sign: '',
       signBody: '',
       signDate: '',
+      signFont: '',
       treeObject: {
         backgroundImage: ''
       },
@@ -57,6 +58,19 @@ export default {
       return `url("${this.treeObject.backgroundImage}"), url("${this.borderObject.backgroundImage}")`
     }
   },
+  methods: {
+    makeOrder: function () {
+      let order = {
+        treeImage: this.treeObject.backgroundImage,
+        treeName: this.treeName
+        // You have set ther other data which should send on backend
+      }
+      console.log(order)
+      this.axios.post('http://localhost:3000/api/orders/', order).then((res) => {
+        console.log(res.status)
+      })
+    }
+  },
   created () {
     bus.$on('treeChosen', (data) => {
       this.treeObject.backgroundImage = data.treeUrl
@@ -74,6 +88,9 @@ export default {
     })
     bus.$on('newSignDate', (newDate) => {
       this.signDate = newDate
+    })
+    bus.$on('fontChosen', (newFont) => {
+      this.signFont = newFont
     })
   }
 }

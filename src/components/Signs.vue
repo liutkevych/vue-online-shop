@@ -44,7 +44,7 @@ export default {
       header: '',
       body: '',
       date: '',
-      fonts: ['Ariston', 'DaVinci', 'Body']
+      fonts: ['Ariston', 'DaVinci', 'Brody']
     }
   },
   watch: {
