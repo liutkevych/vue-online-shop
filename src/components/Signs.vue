@@ -20,6 +20,15 @@
           <label>Дата події</label>          
         </div>
       </div>
+
+      <div class="sign-font" >
+        <h3>Доступні шрифти</h3>
+        <ul>
+          <li class="inline-b" v-for="(font, index) in fonts">
+            <button class="btn btn-primary" v-on:click="addFont(index)">{{font}}</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +43,8 @@ export default {
     return {
       header: '',
       body: '',
-      date: ''
+      date: '',
+      fonts: ['Ariston', 'DaVinci', 'Body']
     }
   },
   watch: {
@@ -46,6 +56,11 @@ export default {
     },
     date: function (newDate) {
       bus.$emit('newSignDate', newDate)
+    }
+  },
+  methods: {
+    addFont: function (index) {
+      bus.$emit('fontChosen', this.fonts[index])
     }
   }
 }
@@ -74,8 +89,19 @@ input:focus {
 
 label {
   margin-left: 16px;
-  font-size: 14px;
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  font-family: Arial, serif;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+}
+
+.inline-b {
+  display: inline-block;
+  margin-right: 16px;
 }
 </style>
 
