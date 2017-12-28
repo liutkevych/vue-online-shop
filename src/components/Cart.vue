@@ -1,6 +1,8 @@
 <template>
   <div class="cart">
-    <div class="cart-title"><strong>Ваш малюнок</strong></div>
+    <div class="cart-title">
+      <strong>Ваш малюнок</strong>
+    </div>
     <hr>
     <div class="element-description">
       <p><strong>Зображення:</strong> {{ treeName }}</p>
@@ -15,6 +17,10 @@
       <div class="sign-header sign-font">{{sign}}</div>
       <div class="sign-body sign-font">{{signBody}}</div>
       <div class="sign-date sign-font">{{signDate}}</div>
+    </div>
+
+    <div class="cart-footer">
+      <button class="btn btn-primary btn-lg">До кошика</button>
     </div>
   </div>
 </template>
@@ -84,11 +90,16 @@ export default {
     height: 250px;
     display: inline-block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 16px;
   }
 
   .cart-title {
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
+  }
+
+  .cart-footer {
+    margin-bottom: 16px;
   }
 
   .sign-header {

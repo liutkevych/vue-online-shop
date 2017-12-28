@@ -30,17 +30,17 @@ export default {
       }, {
         id: 2,
         name: 'New border 2',
-        url: 'https://cdn.pixabay.com/photo/2015/12/20/20/19/picture-frame-1101626_1280.png',
+        url: 'http://www.pngmart.com/files/5/Red-Border-Frame-Transparent-Background.png',
         cost: 30
       }, {
         id: 3,
         name: 'New border 3',
-        url: 'https://cdn.pixabay.com/photo/2017/07/20/19/56/art-2523530_1280.png',
+        url: 'https://cdn.pixabay.com/photo/2016/12/03/23/35/frame-1880835_1280.png',
         cost: 25
       }, {
         id: 4,
         name: 'New border 4',
-        url: 'https://cdn.pixabay.com/photo/2016/06/23/08/55/frame-1474875_1280.png',
+        url: 'https://cdn.pixabay.com/photo/2017/02/24/10/35/background-2094410_1280.png',
         cost: 27
       }]
     }
@@ -58,13 +58,6 @@ export default {
 </script>
 
 <style scoped>
-  .is-centered {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .border-img {
     width: 95%;
     height: 95%;

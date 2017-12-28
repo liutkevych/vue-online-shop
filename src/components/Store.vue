@@ -39,7 +39,7 @@ export default {
       }, {
         id: 4,
         name: 'New title 4',
-        url: 'https://cdn.pixabay.com/photo/2016/09/02/06/26/ficus-1638376_1280.png',
+        url: 'https://cdn.pixabay.com/photo/2016/07/12/08/19/tree-1511608_1280.png',
         cost: 700
       }]
     }

@@ -20,7 +20,9 @@
       </div>
       
       <div class="result-section overlay"><Cart/></div>
-      <div class="footer"><hr/><h2>Total prise: {{ totalPrise }} грн.</h2></div>
+      <div class="footer">
+        <hr/>
+        <p class="text-r">Total prise: <span class="is-green"><span class="f-lg">{{ totalPrise }}</span> грн.</span></p></div>
     </div>
   </div>
 </template>
@@ -135,10 +137,65 @@ hr {
     border: 3px solid #36c742;
   }
 
+  .card-sm {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    margin: 10px 10px;
+    box-sizing: border-box;
+  }
+
   .menu {
     list-style-type: none;
     -webkit-padding-start: 0px;
     display: flex;
     justify-content: space-around;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .btn:focus {
+    outline: none;
+  }
+
+  .btn-primary {
+    background-color: #36c742;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .btn-primary:active {
+    background-color: #ffffff;
+    color: #36c742;
+    font-weight: 600;
+  }
+
+  .btn-lg {
+    text-transform: uppercase;
+  }
+
+  .is-centered {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .is-green {
+    color: #36c742;
+  }
+
+  .text-r {
+    text-align: right;
+  }
+
+  .f-lg {
+    font-size: 1.5em;
+    font-weight: 600;
   }
 </style>
